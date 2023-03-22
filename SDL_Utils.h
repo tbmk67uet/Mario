@@ -4,9 +4,9 @@
 #include <iostream>
 #include "SDL.h"
 
-const int SCREEN_HEIGHT=800;
+const int SCREEN_HEIGHT=640;
 
-const int SCREEN_WIDTH=800;
+const int SCREEN_WIDTH=1280;
 
 void logSDLError(std::ostream& os,const std::string &msg, bool fatal = false);
 
@@ -17,8 +17,10 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer);
 
 void waitUntilKeyPressed();
 
+const int FRAME_PER_SECOND = 25; //fps
+
 #define TILE_SIZE 64
-#define MAX_MAP_X 400
+#define MAX_MAP_X 32
 #define MAX_MAP_Y 10
 
 const int COLOR_KEY_R=167;
@@ -35,5 +37,11 @@ struct Map{
     int tile[MAX_MAP_Y][MAX_MAP_X];
     char* file_name;
 };
+
+struct Input{
+    int left,right,up,down;
+    int jump;
+};
+
 
 #endif // SDL_UTILS_H_INCLUDED

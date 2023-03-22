@@ -1,17 +1,21 @@
 # depslib dependency file v1.0
-1678352268 source:d:\cpp\gameproject\main.cpp
+1679474831 source:d:\cpp\gameproject\main.cpp
 	<iostream>
 	<SDL.h>
 	"SDL_Utils.h"
 	"BaseObject.h"
 	<SDL_image.h>
 	"GameMap.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	<vector>
 
-1678350764 d:\cpp\gameproject\sdl_utils.h
+1679272926 d:\cpp\gameproject\sdl_utils.h
 	<iostream>
 	"SDL.h"
 
-1677768893 source:d:\cpp\gameproject\sdl_utils.cpp
+1678638651 source:d:\cpp\gameproject\sdl_utils.cpp
 	"SDL_Utils.h"
 	<chrono>
 
@@ -33,21 +37,44 @@
 
 1678202820 source:d:\cpp\gameproject\map.cpp
 
-1678244113 d:\cpp\gameproject\baseobject.h
+1678632470 d:\cpp\gameproject\baseobject.h
 	"SDL_Utils.h"
 
-1678351438 source:d:\cpp\gameproject\baseobject.cpp
+1679023411 source:d:\cpp\gameproject\baseobject.cpp
 	"BaseObject.h"
 	"SDL_Utils.h"
 	<SDL_image.h>
 	<SDL.h>
 
-1678352268 source:d:\cpp\gameproject\gamemap.cpp
+1678878891 source:d:\cpp\gameproject\gamemap.cpp
 	"BaseObject.h"
 	"GameMap.h"
 	"SDL_Utils.h"
 
-1678352477 d:\cpp\gameproject\gamemap.h
+1678856405 d:\cpp\gameproject\gamemap.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+
+1679272425 d:\cpp\gameproject\mainobject.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+
+1679475163 source:d:\cpp\gameproject\mainobject.cpp
+	"MainObject.h"
+	"SDL_Utils.h"
+
+1678894886 source:d:\cpp\gameproject\imptimer.cpp
+	"ImpTimer.h"
+	"SDL_Utils.h"
+
+1678894840 d:\cpp\gameproject\imptimer.h
+
+1679274570 source:d:\cpp\gameproject\bulletobject.cpp
+
+1679459053 source:d:\cpp\gameproject\threatsobject.cpp
+	"ThreatsObject.h"
+
+1679459086 d:\cpp\gameproject\threatsobject.h
 	"SDL_Utils.h"
 	"BaseObject.h"
 

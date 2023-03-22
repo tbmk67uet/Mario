@@ -11,7 +11,7 @@ public:
     void SetRect(const int& x,const int& y){rect.x=x,rect.y=y;}
     SDL_Rect GetRect() const{return rect;}
     SDL_Texture* GetObject() const {return newTexture;}
-    bool LoadImg(std::string path,SDL_Renderer* renderer);
+    virtual bool LoadImg(std::string path,SDL_Renderer* renderer);
     void render(SDL_Renderer* renderer,const SDL_Rect* clip = NULL);
     void free();
 protected:
