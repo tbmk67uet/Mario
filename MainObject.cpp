@@ -1,8 +1,10 @@
 #include "MainObject.h"
 #include "SDL_Utils.h"
+#include "ImpTimer.h"
 
 MainObject::MainObject()
 {
+
     frame = 0;
     x_pos=0;
     y_pos=0;
@@ -31,7 +33,7 @@ bool MainObject::LoadImg(std::string path,SDL_Renderer* renderer)
    bool ret = BaseObject::LoadImg(path,renderer);
    if(ret == true)
    {
-       wframe = rect.w/8;
+       wframe = rect.w/7;
        hframe = rect.h;
    }
 
@@ -77,10 +79,8 @@ void MainObject::setclips()
         frameClip[6].w=wframe;
         frameClip[6].h=hframe;
 
-        frameClip[7].x=7*wframe;
-        frameClip[7].y=0;
-        frameClip[7].w=wframe;
-        frameClip[7].h=hframe;
+
+
     }
 }
 
@@ -90,7 +90,7 @@ void MainObject::Show(SDL_Renderer* renderer)
 
     if(input_type.left == 1 || input_type.right==1) frame++;
     else frame=0;
-    if(frame >= 8) frame = 0;
+    if(frame >= 7) frame = 0;
     if(come_back_time==0)
     {
     rect.x=x_pos - map_x;
@@ -146,17 +146,18 @@ void MainObject::HandleInput(SDL_Event e,SDL_Renderer* renderer)
 
         }
     }
+
     if(e.type == SDL_KEYDOWN)
     {
+
         if(e.key.keysym.sym == SDLK_UP)
         {
-
-            input_type.jump=1;
+            input_type.jump=1;}
 
         }
     }
 
-}
+
 
 void MainObject::DoPlayer(Map& map_data)
 {
@@ -189,6 +190,7 @@ void MainObject::DoPlayer(Map& map_data)
     if(come_back_time > 0){
             come_back_time--;
     if(come_back_time == 0){
+
         onGround = false;
         x_val = 0;
         y_pos = 0;
@@ -214,7 +216,8 @@ void MainObject::CheckToMap(Map& map_data)
     {
         if(x_val > 0)
         {
-            if(map_data.tile[y1][x2]  != BLANK_TILE || map_data.tile[y2][x2] != BLANK_TILE)
+
+            if((map_data.tile[y1][x2]  != BLANK_TILE && map_data.tile[y1][x2]  < 10) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2]  < 10  ))
             {
                 x_pos = x2*TILE_SIZE;
                 x_pos -= wframe +1;
@@ -224,7 +227,8 @@ void MainObject::CheckToMap(Map& map_data)
         }
         else if(x_val <0)
         {
-            if(map_data.tile[y1][x1] != BLANK_TILE || map_data.tile[y2][x1] != BLANK_TILE)
+
+            if((map_data.tile[y1][x1] != BLANK_TILE && map_data.tile[y1][x1] < 10) || (map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10))
             {
                 x_pos = (x1 + 1)*TILE_SIZE;
                 x_val = 0;
@@ -244,7 +248,8 @@ void MainObject::CheckToMap(Map& map_data)
     {
         if(y_val > 0)
         {
-            if(map_data.tile[y2][x1] != BLANK_TILE || map_data.tile[y2][x2] != BLANK_TILE)
+
+            if((map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2] < 10))
             {
                 y_pos = y2*TILE_SIZE;
                 y_pos -= hframe +1;
@@ -259,7 +264,7 @@ void MainObject::CheckToMap(Map& map_data)
         }
         else if(y_val < 0)
         {
-            if(map_data.tile[y1][x1] != BLANK_TILE || map_data.tile[y1][x2] != BLANK_TILE)
+            if((map_data.tile[y1][x1] != BLANK_TILE && map_data.tile[y1][x1] < 10) || (map_data.tile[y1][x2] != BLANK_TILE && map_data.tile[y1][x2] < 10))
             {
                 y_pos = (y1+1)*TILE_SIZE;
                 y_val = 0;
@@ -309,11 +314,11 @@ void MainObject::updateImagePlayer(SDL_Renderer* renderer)
     {
         if(status == WALK_LEFT)
         {
-            LoadImg("Image/mario_left.png",renderer);
+            LoadImg("Image/2.png",renderer);
         }
         else if(status == WALK_RIGHT)
         {
-            LoadImg("Image/mario_right.png",renderer);
+            LoadImg("Image/1.png",renderer);
         }
     }
     else{

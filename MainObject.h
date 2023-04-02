@@ -6,8 +6,8 @@
 
 #define GRAVITY_SPEED 0.8
 #define MAX_FALL_SPEED 10
+#define PLAYER_JUMP_VAL 20
 #define PLAYER_SPEED 10
-#define PLAYER_JUMP_VAL 12
 #define BLANK_TILE 0
 
 class MainObject : public BaseObject
@@ -39,7 +39,7 @@ private:
     int wframe;
     int hframe;
 
-    SDL_Rect frameClip[8];
+    SDL_Rect frameClip[7];
     Input input_type;
     int frame;
     int status;

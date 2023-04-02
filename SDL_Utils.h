@@ -4,9 +4,9 @@
 #include <iostream>
 #include "SDL.h"
 
-const int SCREEN_HEIGHT=640;
+const int SCREEN_HEIGHT=320;
 
-const int SCREEN_WIDTH=1280;
+const int SCREEN_WIDTH=960;
 
 void logSDLError(std::ostream& os,const std::string &msg, bool fatal = false);
 
@@ -17,10 +17,10 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer);
 
 void waitUntilKeyPressed();
 
-const int FRAME_PER_SECOND = 25; //fps
+const int FRAME_PER_SECOND = 24; //fps
 
-#define TILE_SIZE 64
-#define MAX_MAP_X 32
+#define TILE_SIZE 32
+#define MAX_MAP_X 400
 #define MAX_MAP_Y 10
 
 const int COLOR_KEY_R=167;

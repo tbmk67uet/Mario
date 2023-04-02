@@ -13,6 +13,10 @@ ThreatsObject::ThreatsObject()
     frame=0;
     map_x=0;
     map_y=0;
+    animationA=0;
+    animationB=0;
+    input_type.left=1;
+    type_move = STATIC_THREAT;
 }
 ThreatsObject::~ThreatsObject()
 {
@@ -69,10 +73,7 @@ void ThreatsObject::setClip()
         frameClip[6].w=wframe;
         frameClip[6].h=hframe;
 
-        frameClip[7].x=7*wframe;
-        frameClip[7].y=0;
-        frameClip[7].w=wframe;
-        frameClip[7].h=hframe;
+
     }
 }
 
@@ -83,7 +84,7 @@ void ThreatsObject::Show(SDL_Renderer* renderer)
         rect.x=x_pos-map_x;
         rect.y=y_pos-map_y;
         frame++;
-        if(frame >= 8) frame = 0;
+        if(frame >= 7) frame = 0;
         SDL_Rect* currentClip = &frameClip[frame];
         SDL_Rect renderQuad = {rect.x,rect.y,wframe,hframe};
         SDL_RenderCopy(renderer,newTexture,currentClip,&renderQuad);
@@ -94,12 +95,22 @@ void ThreatsObject::DoPlayer(Map& gMap)
 {
     if(come_back_time == 0)
     {
-        x_val == 0;
+        x_val = 0.0;
         y_val += THREAT_GRAVITY_SPEED;
         if(y_val >= THREAT_MAX_FALL_SPEED)
         {
             y_val = THREAT_MAX_FALL_SPEED;
         }
+
+        if(input_type.left == 1)
+        {
+            x_val -= THREAT_SPEED;
+        }
+        else if(input_type.right == 1)
+        {
+            x_val += THREAT_SPEED;
+        }
+
         CheckToMap(gMap);
     }
     else if(come_back_time>0)
@@ -131,21 +142,36 @@ void ThreatsObject::CheckToMap(Map& map_data)
     {
         if(x_val > 0)
         {
-            if(map_data.tile[y1][x2]  != BLANK_TILE || map_data.tile[y2][x2] != BLANK_TILE)
+
+            if((map_data.tile[y1][x2]  != BLANK_TILE && map_data.tile[y1][x2]  < 10   ) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2]  < 10  ))
             {
                 x_pos = x2*TILE_SIZE;
                 x_pos -= wframe +1;
                 x_val = 0;
 
             }
+            if(map_data.tile[y1][x2] == 7 || map_data.tile[y2][x2] == 7)
+            {
+                x_pos = x2*TILE_SIZE;
+                x_pos -= wframe +1;
+                x_val = -x_val;
+            }
         }
         else if(x_val <0)
         {
-            if(map_data.tile[y1][x1] != BLANK_TILE || map_data.tile[y2][x1] != BLANK_TILE)
+
+            if((map_data.tile[y1][x1] != BLANK_TILE && map_data.tile[y1][x1] < 10  && map_data.tile[y1][x1] != 7) || (map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10  && map_data.tile[y2][x1] != 7))
             {
                 x_pos = (x1 + 1)*TILE_SIZE;
                 x_val = 0;
 
+            }
+            if(map_data.tile[y1][x1] == 7 || map_data.tile[y2][x1] == 7)
+            {
+                x_pos = x2*TILE_SIZE;
+                x_pos -= wframe +1;
+                input_type.right=1;
+                x_val = -x_val;
             }
         }
     }
@@ -161,18 +187,20 @@ void ThreatsObject::CheckToMap(Map& map_data)
     {
         if(y_val > 0)
         {
-            if(map_data.tile[y2][x1] != BLANK_TILE || map_data.tile[y2][x2] != BLANK_TILE)
+
+            if((map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2] < 10))
             {
                 y_pos = y2*TILE_SIZE;
                 y_pos -= hframe +1;
                 y_val = 0;
+
                 onGround = true;
             }
 
         }
         else if(y_val < 0)
         {
-            if(map_data.tile[y1][x1] != BLANK_TILE || map_data.tile[y1][x2] != BLANK_TILE)
+            if((map_data.tile[y1][x1] != BLANK_TILE && map_data.tile[y1][x1] < 10) || (map_data.tile[y1][x2] != BLANK_TILE && map_data.tile[y1][x2] < 10))
             {
                 y_pos = (y1+1)*TILE_SIZE;
                 y_val = 0;
@@ -193,3 +221,42 @@ void ThreatsObject::CheckToMap(Map& map_data)
         come_back_time = 60;
     }
 }
+
+void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
+{
+    if(type_move == STATIC_THREAT)
+    {
+        ;//
+    }
+    else
+    {
+        if(onGround == true)
+        {
+            if(x_pos > animationB)
+            {
+                input_type.left=1;
+                input_type.right=0;
+                LoadImg("Image/goombas.png",renderer);
+            }
+            else if(x_pos < animationA)
+            {
+                input_type.left=0;
+                input_type.right=1;
+                LoadImg("Image/goombas.png",renderer);
+            }
+        }
+        else
+        {
+            if(input_type.left == 1)
+            {
+                LoadImg("Image/goombas.png",renderer);
+            }
+            if(input_type.right == 1)
+            {
+                LoadImg("Image/goombas.png",renderer);
+            }
+        }
+    }
+}
+
+
