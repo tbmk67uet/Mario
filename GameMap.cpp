@@ -35,7 +35,7 @@ void GameMap::LoadMap(char* name)
 void GameMap::LoadTiles(SDL_Renderer* renderer){
     char file_img[30];
     FILE* fp=NULL;
-    for(int i=1;i<26;i++){
+    for(int i=1;i<27;i++){
         sprintf(file_img,"map1/%d.png",i);
         fp=fopen(file_img,"r");
         fclose(fp);

@@ -91,7 +91,7 @@ void ThreatsObject::Show(SDL_Renderer* renderer)
     }
 }
 
-void ThreatsObject::DoPlayer(Map& gMap)
+void ThreatsObject::DoPlayer(Map& map_data)
 {
     if(come_back_time == 0)
     {
@@ -111,7 +111,7 @@ void ThreatsObject::DoPlayer(Map& gMap)
             x_val += THREAT_SPEED;
         }
 
-        CheckToMap(gMap);
+        CheckToMap(map_data);
     }
     else if(come_back_time>0)
     {
@@ -142,37 +142,43 @@ void ThreatsObject::CheckToMap(Map& map_data)
     {
         if(x_val > 0)
         {
-
-            if((map_data.tile[y1][x2]  != BLANK_TILE && map_data.tile[y1][x2]  < 10   ) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2]  < 10  ))
+            int val1=map_data.tile[y1][x2];
+            int val2=map_data.tile[y2][x2];
+            if((val1  != BLANK_TILE && val1  < 10 && val1 != 7   ) || (val2 != BLANK_TILE && val2  < 10 && val2 != 7  ))
             {
                 x_pos = x2*TILE_SIZE;
                 x_pos -= wframe +1;
                 x_val = 0;
 
             }
-            if(map_data.tile[y1][x2] == 7 || map_data.tile[y2][x2] == 7)
+            if(val1 == 7 || val2 == 7 || val1==9 || val2==9)
             {
                 x_pos = x2*TILE_SIZE;
-                x_pos -= wframe +1;
-                x_val = -x_val;
+                x_pos -= wframe +1;x_val=-THREAT_SPEED;
+                input_type.right=0;
+                input_type.left=1;
+
             }
         }
         else if(x_val <0)
         {
-
-            if((map_data.tile[y1][x1] != BLANK_TILE && map_data.tile[y1][x1] < 10  && map_data.tile[y1][x1] != 7) || (map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10  && map_data.tile[y2][x1] != 7))
+            int val1=map_data.tile[y1][x1];
+            int val2=map_data.tile[y2][x1];
+            if((val1 != BLANK_TILE && val1 < 10  && val1 != 7) || (val2 != BLANK_TILE && val2 < 10  && val2 != 7))
             {
-                x_pos = (x1 + 1)*TILE_SIZE;
+                x_pos = (x1+1)*TILE_SIZE;
                 x_val = 0;
 
             }
-            if(map_data.tile[y1][x1] == 7 || map_data.tile[y2][x1] == 7)
+
+            if(val1 == 8 || val2 == 8 || val1==9 || val2==9)
             {
-                x_pos = x2*TILE_SIZE;
-                x_pos -= wframe +1;
+                x_pos = (x1+1)*TILE_SIZE;x_val=THREAT_SPEED;
+                input_type.left=0;
                 input_type.right=1;
-                x_val = -x_val;
+
             }
+
         }
     }
 
@@ -214,7 +220,7 @@ void ThreatsObject::CheckToMap(Map& map_data)
     if(x_pos < 0) x_pos =0;
     else if(x_pos + wframe > map_data.max_x)
     {
-        x_pos = map_data.max_x - wframe -1;
+        x_pos = map_data.max_x - wframe - 1;
     }
     if(y_pos > map_data.max_y)
     {

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "SDL.h"
+#include "SDL_ttf.h"
 
 const int SCREEN_HEIGHT=320;
 
@@ -11,7 +12,7 @@ const int SCREEN_WIDTH=960;
 void logSDLError(std::ostream& os,const std::string &msg, bool fatal = false);
 
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
-	int screenWidth, int screenHeight, const char* windowTitle) ;
+	int screenWidth, int screenHeight, const char* windowTitle,TTF_Font* font) ;
 
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer);
 
@@ -26,6 +27,7 @@ const int FRAME_PER_SECOND = 24; //fps
 const int COLOR_KEY_R=167;
 const int COLOR_KEY_G=175;
 const int COLOR_KEY_B=180;
+
 
 struct Map{
     int start_x;

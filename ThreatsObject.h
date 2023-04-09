@@ -20,8 +20,7 @@ public:
         STATIC_THREAT = 0,
         MOVE_IN_SPACE_THREAT = 1,
     };
-    void set_x_val(const float& xVal){x_val=xVal;}
-    void set_y_val(const float& yVal){y_val=yVal;}
+
     void set_x_pos(const float& xp){x_pos=xp;}
     void set_y_pos(const float& yp){y_pos=yp;}
     float get_x_pos() const{return x_pos;}

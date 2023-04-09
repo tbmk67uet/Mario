@@ -3,11 +3,12 @@
 
 #include "SDL_Utils.h"
 #include "BaseObject.h"
+#include <vector>
 
 #define GRAVITY_SPEED 0.8
-#define MAX_FALL_SPEED 10
-#define PLAYER_JUMP_VAL 20
-#define PLAYER_SPEED 10
+#define MAX_FALL_SPEED 20
+#define PLAYER_JUMP_VAL 14
+#define PLAYER_SPEED 6
 #define BLANK_TILE 0
 
 class MainObject : public BaseObject
@@ -27,15 +28,27 @@ public:
     void setclips();
     void DoPlayer(Map& map_data);
     void CheckToMap(Map& map_data);
+    bool CheckToBlocks(Map& map_data);
     void SetMapXY(const int mapx,const int mapy){map_x = mapx;map_y = mapy;}
     void CenterEntityOnMap(Map& map_data);
     void updateImagePlayer(SDL_Renderer* renderer);
+    int makeX() const {return pos1;}
+    int makeY() const {return pos2;}
+    float getXpos() const {return x_pos;}
+    float getYpos() const {return y_pos;}
+    float getXval() const {return x_val;}
+    float getYval() const {return y_val;}
+
 private:
+    int pos1;
+    int pos2;
+    int coinx;
+    int coiny;
     float x_val;
     float y_val;
     float x_pos;
     float y_pos;
-
+    int i;
     int wframe;
     int hframe;
 

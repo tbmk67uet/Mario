@@ -1,4 +1,5 @@
 #include "SDL_Utils.h"
+#include "TextObject.h"
 #include <chrono>
 
 // Các hàm chung về khởi tạo và huỷ SDL
@@ -13,7 +14,7 @@ void logSDLError(std::ostream& os,
 }
 
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
-	int screenWidth, int screenHeight, const char* windowTitle)
+	int screenWidth, int screenHeight, const char* windowTitle,TTF_Font* font)
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         logSDLError(std::cout, "SDL_Init", true);
@@ -32,6 +33,9 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
 
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
     SDL_RenderSetLogicalSize(renderer, screenWidth, screenHeight);
+    if(TTF_Init() == -1) logSDLError(std::cout,"Create font",true);
+
+
 }
 
 void quitSDL(SDL_Window* window, SDL_Renderer* renderer)

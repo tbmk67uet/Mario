@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1680194721 source:d:\cpp\gameproject\main.cpp
+1681013476 source:d:\cpp\gameproject\main.cpp
 	<iostream>
 	<SDL.h>
 	"SDL_Utils.h"
@@ -9,14 +9,18 @@
 	"MainObject.h"
 	"ImpTimer.h"
 	"ThreatsObject.h"
+	"TextObject.h"
+	"Coin.h"
 	<vector>
 
-1680079275 d:\cpp\gameproject\sdl_utils.h
+1680859201 d:\cpp\gameproject\sdl_utils.h
 	<iostream>
 	"SDL.h"
+	"SDL_ttf.h"
 
-1678638651 source:d:\cpp\gameproject\sdl_utils.cpp
+1680666613 source:d:\cpp\gameproject\sdl_utils.cpp
 	"SDL_Utils.h"
+	"TextObject.h"
 	<chrono>
 
 1678240826 source:d:\cpp\gameproject\gallery.cpp
@@ -37,32 +41,35 @@
 
 1678202820 source:d:\cpp\gameproject\map.cpp
 
-1678632470 d:\cpp\gameproject\baseobject.h
+1681008491 d:\cpp\gameproject\baseobject.h
 	"SDL_Utils.h"
 
-1679023411 source:d:\cpp\gameproject\baseobject.cpp
+1680772800 source:d:\cpp\gameproject\baseobject.cpp
 	"BaseObject.h"
 	"SDL_Utils.h"
 	<SDL_image.h>
 	<SDL.h>
 
-1680194140 source:d:\cpp\gameproject\gamemap.cpp
+1680715065 source:d:\cpp\gameproject\gamemap.cpp
 	"BaseObject.h"
 	"GameMap.h"
 	"SDL_Utils.h"
 
-1680148187 d:\cpp\gameproject\gamemap.h
+1680626830 d:\cpp\gameproject\gamemap.h
 	"SDL_Utils.h"
 	"BaseObject.h"
 
-1680084439 d:\cpp\gameproject\mainobject.h
+1681011547 d:\cpp\gameproject\mainobject.h
 	"SDL_Utils.h"
 	"BaseObject.h"
+	<vector>
 
-1680148588 source:d:\cpp\gameproject\mainobject.cpp
+1681011426 source:d:\cpp\gameproject\mainobject.cpp
 	"MainObject.h"
 	"SDL_Utils.h"
 	"ImpTimer.h"
+	"Coin.h"
+	<vector>
 
 1678894886 source:d:\cpp\gameproject\imptimer.cpp
 	"ImpTimer.h"
@@ -72,10 +79,25 @@
 
 1679274570 source:d:\cpp\gameproject\bulletobject.cpp
 
-1680194253 source:d:\cpp\gameproject\threatsobject.cpp
+1680784999 source:d:\cpp\gameproject\threatsobject.cpp
 	"ThreatsObject.h"
 
-1680055944 d:\cpp\gameproject\threatsobject.h
+1681009291 d:\cpp\gameproject\threatsobject.h
 	"SDL_Utils.h"
+	"BaseObject.h"
+
+1680538244 d:\cpp\gameproject\textobject.h
+	"SDL_Utils.h"
+
+1680538456 source:d:\cpp\gameproject\textobject.cpp
+	"TextObject.h"
+
+1681009241 d:\cpp\gameproject\coin.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+	"GameMap.h"
+
+1680839723 source:d:\cpp\gameproject\coin.cpp
+	"Coin.h"
 	"BaseObject.h"
 
