@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "SDL_ttf.h"
 
-const int SCREEN_HEIGHT=320;
+const int SCREEN_HEIGHT=448;
 
 const int SCREEN_WIDTH=960;
 
@@ -22,7 +22,7 @@ const int FRAME_PER_SECOND = 24; //fps
 
 #define TILE_SIZE 32
 #define MAX_MAP_X 400
-#define MAX_MAP_Y 10
+#define MAX_MAP_Y 14
 
 const int COLOR_KEY_R=167;
 const int COLOR_KEY_G=175;

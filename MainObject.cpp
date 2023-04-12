@@ -8,9 +8,6 @@ MainObject::MainObject()
 {
     pos1=0;
     pos2=0;
-    coinx=0;
-    coiny=0;
-    i=0;
     frame = 0;
     x_pos=0;
     y_pos=0;
@@ -167,7 +164,7 @@ void MainObject::DoPlayer(Map& map_data)
     if(come_back_time == 0)
     {
     x_val=0;
-    y_val += 0.8;
+    y_val += 3.5;
     if(y_val >= MAX_FALL_SPEED) y_val=MAX_FALL_SPEED;
     if(input_type.left==1)
     {
@@ -253,7 +250,6 @@ void MainObject::CheckToMap(Map& map_data)
 
         if(y_val > 0)
         {
-
             if((map_data.tile[y2][x1] != BLANK_TILE && map_data.tile[y2][x1] < 10 || map_data.tile[y2][x1] == 26) || (map_data.tile[y2][x2] != BLANK_TILE && map_data.tile[y2][x2] < 10 || map_data.tile[y2][x2] == 26))
             {
                 y_pos = y2*TILE_SIZE;
@@ -265,8 +261,6 @@ void MainObject::CheckToMap(Map& map_data)
                 }
                 onGround = true;
             }
-
-
         }
 
         else if(y_val < 0)
@@ -296,6 +290,7 @@ void MainObject::CheckToMap(Map& map_data)
         come_back_time = 60;
     }
 }
+
 }
 
 void MainObject::CenterEntityOnMap(Map& map_data)
@@ -342,7 +337,7 @@ bool MainObject::CheckToBlocks(Map& map_data)
             }
         }
 }
-return check;
+        return check;
 }
 
 void MainObject::updateImagePlayer(SDL_Renderer* renderer)
@@ -351,11 +346,11 @@ void MainObject::updateImagePlayer(SDL_Renderer* renderer)
     {
         if(status == WALK_LEFT)
         {
-            LoadImg("Image/2.png",renderer);
+            LoadImg("Image/mario_left.png",renderer);
         }
         else if(status == WALK_RIGHT)
         {
-            LoadImg("Image/1.png",renderer);
+            LoadImg("Image/mario_right.png",renderer);
         }
     }
     if(onGround == false){

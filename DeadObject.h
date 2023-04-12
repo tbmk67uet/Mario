@@ -1,5 +1,5 @@
-#ifndef THREATSOBJECT_H_INCLUDED
-#define THREATSOBJECT_H_INCLUDED
+#ifndef DEADOBJECT_H_INCLUDED
+#define DEADOBJECT_H_INCLUDED
 
 #include "SDL_Utils.h"
 #include "BaseObject.h"
@@ -10,11 +10,11 @@
 #define BLANK_TILE 0
 #define THREAT_SPEED 3
 
-class ThreatsObject : public BaseObject
+class DeadObject : public BaseObject
 {
 public:
-    ThreatsObject();
-    ~ThreatsObject();
+    DeadObject();
+    ~DeadObject();
     enum typeMove
     {
         STATIC_THREAT = 0,
@@ -30,38 +30,34 @@ public:
     void set_x_val(const float& xVal){x_val = xVal;}
     void set_y_val(const float& yVal){y_val = yVal;}
 
-    void SetMapXY(const int& mpx,const int& mpy){map_x=mpx;map_y=mpy;}
-    void setClip();
+
+
     bool LoadImg(std::string path,SDL_Renderer* renderer);
     void Show(SDL_Renderer* renderer);
 
 
     void DoPlayer(Map& gMap);
-    void CheckToMap(Map& gMap);
+
     void setAlive(bool aLive){alive = aLive;}
     void setTypeMove(const int& typeMove){type_move = typeMove;}
-    void SetAnimationPos(const int& pos_a,const int& pos_b){animationA=pos_a;animationB=pos_b;}
-    void set_input_left(const int& ipLeft){input_type.left = ipLeft;}
+
+
     void ImpMoveType(SDL_Renderer* renderer);
 
 private:
-    SDL_Rect frameClip[THREAT_FRAME_NUMBER];
+
     int wframe;
     int hframe;
-    int frame;
-    bool onGround;
+
     float x_pos;
     float y_pos;
     float x_val;
     float y_val;
-    int map_x;
-    int map_y;
-    int come_back_time;
+
     int type_move;
-    int animationA;
-    int animationB;
+
     bool alive;
     Input input_type;
 };
 
-#endif // THREATSOBJECT_H_INCLUDED
+#endif // DEADOBJECT_H_INCLUDED

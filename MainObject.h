@@ -7,8 +7,8 @@
 
 #define GRAVITY_SPEED 0.8
 #define MAX_FALL_SPEED 20
-#define PLAYER_JUMP_VAL 14
-#define PLAYER_SPEED 6
+#define PLAYER_JUMP_VAL 30
+#define PLAYER_SPEED 20
 #define BLANK_TILE 0
 
 class MainObject : public BaseObject
@@ -38,17 +38,18 @@ public:
     float getYpos() const {return y_pos;}
     float getXval() const {return x_val;}
     float getYval() const {return y_val;}
+    void setYval(const float& yVal){y_val = yVal;}
+    void setYpos(const float& yPos){y_pos = yPos;}
+    void setXpos(const float& xPos){x_pos = xPos;}
+
 
 private:
     int pos1;
     int pos2;
-    int coinx;
-    int coiny;
     float x_val;
     float y_val;
     float x_pos;
     float y_pos;
-    int i;
     int wframe;
     int hframe;
 
@@ -57,7 +58,6 @@ private:
     int frame;
     int status;
     bool onGround=false;
-
     int map_x;
     int map_y;
 

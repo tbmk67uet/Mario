@@ -2,6 +2,7 @@
 
 ThreatsObject::ThreatsObject()
 {
+    alive = true;
     wframe=0;
     hframe=0;
     x_val=0.0;
@@ -76,6 +77,7 @@ void ThreatsObject::setClip()
 
     }
 }
+
 
 void ThreatsObject::Show(SDL_Renderer* renderer)
 {
@@ -230,6 +232,10 @@ void ThreatsObject::CheckToMap(Map& map_data)
 
 void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
 {
+    if(alive == false) {
+        LoadImg("Image/goombas_die.png",renderer);
+    }
+    else{
     if(type_move == STATIC_THREAT)
     {
         ;//
@@ -262,6 +268,7 @@ void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
                 LoadImg("Image/goombas.png",renderer);
             }
         }
+    }
     }
 }
 

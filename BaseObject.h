@@ -12,6 +12,7 @@ public:
     virtual bool LoadImg(std::string path,SDL_Renderer* renderer);
     void render(SDL_Renderer* renderer,const SDL_Rect* clip = NULL);
     void free();
+    SDL_Texture* getTexture(){return newTexture;}
 protected:
     SDL_Texture* newTexture;
     SDL_Rect rect;

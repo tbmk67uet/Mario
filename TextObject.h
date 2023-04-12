@@ -27,11 +27,10 @@ public:
                     double angle=0.0,
                     SDL_Point* center = NULL,
                     SDL_RendererFlip flip = SDL_FLIP_NONE);
-     int GetWidth() const { return width;}
-     int GetHeight() const { return height;}
+
 
      void SetText(std::string& text){strVal = text;}
-     std::string GetText() const {return strVal;}
+
 private:
     std::string strVal;
     SDL_Color textColor;
