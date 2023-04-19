@@ -8,7 +8,7 @@
 #define GRAVITY_SPEED 0.8
 #define MAX_FALL_SPEED 20
 #define PLAYER_JUMP_VAL 30
-#define PLAYER_SPEED 20
+#define PLAYER_SPEED 6
 #define BLANK_TILE 0
 
 class MainObject : public BaseObject

@@ -40,7 +40,6 @@ std::vector<ThreatsObject*> MakeThreatList()
         {
             pThreats->LoadImg("Image/goombas.png",renderer);
             pThreats->setClip();
-            pThreats->setTypeMove(ThreatsObject::MOVE_IN_SPACE_THREAT);
             pThreats->set_x_pos(200+i*300);
             pThreats->set_y_pos(400);
 

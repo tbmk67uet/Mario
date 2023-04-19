@@ -15,22 +15,40 @@ class ThreatsObject : public BaseObject
 public:
     ThreatsObject();
     ~ThreatsObject();
-    enum typeMove
+
+
+    void set_x_pos(const float& xp)
     {
-        STATIC_THREAT = 0,
-        MOVE_IN_SPACE_THREAT = 1,
-    };
+        x_pos=xp;
+    }
+    void set_y_pos(const float& yp)
+    {
+        y_pos=yp;
+    }
 
-    void set_x_pos(const float& xp){x_pos=xp;}
-    void set_y_pos(const float& yp){y_pos=yp;}
+    float get_x_pos() const
+    {
+        return x_pos;
+    }
+    float get_y_pos() const
+    {
+        return y_pos;
+    }
 
-    float get_x_pos() const{return x_pos;}
-    float get_y_pos() const{return y_pos;}
+    void set_x_val(const float& xVal)
+    {
+        x_val = xVal;
+    }
+    void set_y_val(const float& yVal)
+    {
+        y_val = yVal;
+    }
 
-    void set_x_val(const float& xVal){x_val = xVal;}
-    void set_y_val(const float& yVal){y_val = yVal;}
-
-    void SetMapXY(const int& mpx,const int& mpy){map_x=mpx;map_y=mpy;}
+    void SetMapXY(const int& mpx,const int& mpy)
+    {
+        map_x=mpx;
+        map_y=mpy;
+    }
     void setClip();
     bool LoadImg(std::string path,SDL_Renderer* renderer);
     void Show(SDL_Renderer* renderer);
@@ -38,11 +56,17 @@ public:
 
     void DoPlayer(Map& gMap);
     void CheckToMap(Map& gMap);
-    void setAlive(bool aLive){alive = aLive;}
-    void setTypeMove(const int& typeMove){type_move = typeMove;}
-    void SetAnimationPos(const int& pos_a,const int& pos_b){animationA=pos_a;animationB=pos_b;}
-    void set_input_left(const int& ipLeft){input_type.left = ipLeft;}
+    void SetAnimationPos(const int& pos_a,const int& pos_b)
+    {
+        animationA=pos_a;
+        animationB=pos_b;
+    }
+    void set_input_left(const int& ipLeft)
+    {
+        input_type.left = ipLeft;
+    }
     void ImpMoveType(SDL_Renderer* renderer);
+
 
 private:
     SDL_Rect frameClip[THREAT_FRAME_NUMBER];
@@ -57,10 +81,10 @@ private:
     int map_x;
     int map_y;
     int come_back_time;
-    int type_move;
+
     int animationA;
     int animationB;
-    bool alive;
+
     Input input_type;
 };
 

@@ -2,7 +2,6 @@
 
 ThreatsObject::ThreatsObject()
 {
-    alive = true;
     wframe=0;
     hframe=0;
     x_val=0.0;
@@ -17,7 +16,7 @@ ThreatsObject::ThreatsObject()
     animationA=0;
     animationB=0;
     input_type.left=1;
-    type_move = STATIC_THREAT;
+
 }
 ThreatsObject::~ThreatsObject()
 {
@@ -232,16 +231,7 @@ void ThreatsObject::CheckToMap(Map& map_data)
 
 void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
 {
-    if(alive == false) {
-        LoadImg("Image/goombas_die.png",renderer);
-    }
-    else{
-    if(type_move == STATIC_THREAT)
-    {
-        ;//
-    }
-    else
-    {
+
         if(onGround == true)
         {
             if(x_pos > animationB)
@@ -269,7 +259,7 @@ void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
             }
         }
     }
-    }
-}
+
+
 
 
