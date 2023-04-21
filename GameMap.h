@@ -19,7 +19,8 @@ public:
     GameMap() {;}
     ~GameMap() {;}
     void LoadMap(char* name);
-    void LoadTiles(SDL_Renderer* renderer);
+    void LoadTiles1(SDL_Renderer* renderer);
+    void LoadTiles2(SDL_Renderer* renderer);
     void DrawMap(SDL_Renderer* renderer);
     Map getMap()  {return game_map;}
     void SetMap(Map& map_data) {game_map=map_data;}

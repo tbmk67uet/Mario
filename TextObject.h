@@ -2,8 +2,9 @@
 #define TEXTOBJECT_H_INCLUDED
 
 #include "SDL_Utils.h"
+#include "BaseObject.h"
 
-class TextObject
+class TextObject : public BaseObject
 {
 public:
     TextObject();
