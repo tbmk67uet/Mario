@@ -215,3 +215,101 @@
 	"MenuObject.h"
 	"BaseObject.h"
 
+1681483289 source:e:\gameproject\baseobject.cpp
+	"BaseObject.h"
+	"SDL_Utils.h"
+	<SDL_image.h>
+	<SDL.h>
+
+1681396697 e:\gameproject\baseobject.h
+	"SDL_Utils.h"
+
+1682265014 e:\gameproject\sdl_utils.h
+	<iostream>
+	"SDL.h"
+	"SDL_ttf.h"
+	"SDL_image.h"
+	"SDL_mixer.h"
+
+1680839723 source:e:\gameproject\coin.cpp
+	"Coin.h"
+	"BaseObject.h"
+
+1681009241 e:\gameproject\coin.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+	"GameMap.h"
+
+1681926085 e:\gameproject\gamemap.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+
+1681926215 source:e:\gameproject\gamemap.cpp
+	"BaseObject.h"
+	"GameMap.h"
+	"SDL_Utils.h"
+
+1678894886 source:e:\gameproject\imptimer.cpp
+	"ImpTimer.h"
+	"SDL_Utils.h"
+
+1678894840 e:\gameproject\imptimer.h
+
+1682585884 source:e:\gameproject\main.cpp
+	<iostream>
+	<SDL.h>
+	"SDL_Utils.h"
+	"BaseObject.h"
+	<SDL_image.h>
+	"SDL_ttf.h"
+	"GameMap.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	"TextObject.h"
+	"MenuObject.h"
+	"SDL_mixer.h"
+	"Coin.h"
+	<vector>
+
+1682505617 e:\gameproject\mainobject.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+	<vector>
+
+1682507004 e:\gameproject\threatsobject.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+
+1681554096 e:\gameproject\textobject.h
+	"SDL_Utils.h"
+	"BaseObject.h"
+
+1682506813 e:\gameproject\menuobject.h
+	"BaseObject.h"
+	"TextObject.h"
+	"SDL_ttf.h"
+
+1682506603 source:e:\gameproject\mainobject.cpp
+	"MainObject.h"
+	"SDL_Utils.h"
+	"ImpTimer.h"
+	"Coin.h"
+	<vector>
+
+1681926035 source:e:\gameproject\menuobject.cpp
+	"MenuObject.h"
+	"BaseObject.h"
+
+1681930111 source:e:\gameproject\sdl_utils.cpp
+	"SDL_Utils.h"
+	"TextObject.h"
+	"SDL_mixer.h"
+	<chrono>
+
+1680538456 source:e:\gameproject\textobject.cpp
+	"TextObject.h"
+
+1681443381 source:e:\gameproject\threatsobject.cpp
+	"ThreatsObject.h"
+
