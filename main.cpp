@@ -135,7 +135,7 @@ int main(int argc,char* argv[])
         {
             if(e.type == SDL_QUIT)
             {
-                quit=true;
+                quit = true;
             }
             if(e.type == SDL_KEYDOWN)
             {
@@ -200,16 +200,17 @@ int main(int argc,char* argv[])
             }
             if(player.getYval() >=0 && player.getXpos()  <= pThreat->get_x_pos()+15 && player.getXpos() >= pThreat->get_x_pos()-15 && player.getYpos() <= 338 && player.getYpos() >= 319.7 )
             {
-                player.setYval(-15.0);
+                player.setYval(-25.0);
                 pThreat->set_x_pos(-1000000);
                 pThreat->set_y_pos(-1000000);
                 pThreat->set_x_val(0);
+                pThreat->set_y_val(0);
                 pThreat = NULL;
                 Mix_PlayChannel(-1,gStomp,0);
                 scores += 200 ;
             }
 
-            if(player.getYpos()>400)
+            if(player.getYpos()>OUT_OF_MAP)
             {
                 lives-- ;
                 scores = 0;
@@ -319,7 +320,7 @@ int main(int argc,char* argv[])
             SDL_RenderCopy(renderer,gBackground.getTexture(),NULL,NULL);
             quit = true;
         }
-        if(player.getXpos()>=6270 && checkMap == 1)
+        if(player.getXpos()>=MAX_MAP_1 && checkMap == 1)
         {
             SDL_Delay(2000);
             player.setXpos(0);
@@ -334,7 +335,7 @@ int main(int argc,char* argv[])
             threatsList = MakeThreatList();
         }
 
-        if(player.getXpos()>=6270 && checkMap == 2)
+        if(player.getXpos()>=MAX_MAP_2 && checkMap == 2)
         {
             quit=true;
         }

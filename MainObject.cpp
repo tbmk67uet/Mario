@@ -164,7 +164,7 @@ void MainObject::DoPlayer(Map& map_data)
     if(come_back_time == 0)
     {
     x_val=0;
-    y_val += 3.5;
+    y_val += 3.9;
     if(y_val >= MAX_FALL_SPEED) y_val=MAX_FALL_SPEED;
     if(input_type.left==1)
     {

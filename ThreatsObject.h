@@ -52,8 +52,6 @@ public:
     void setClip();
     bool LoadImg(std::string path,SDL_Renderer* renderer);
     void Show(SDL_Renderer* renderer);
-
-
     void DoPlayer(Map& gMap);
     void CheckToMap(Map& gMap);
     void SetAnimationPos(const int& pos_a,const int& pos_b)

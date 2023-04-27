@@ -9,7 +9,6 @@ namespace MenuObject
 {
     bool LoadImg(std::string path,SDL_Renderer* renderer);
     int ShowMenu(SDL_Renderer* renderer,TTF_Font* font,BaseObject gBackground);
-
 }
 
 

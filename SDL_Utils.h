@@ -27,6 +27,10 @@ const int FRAME_PER_SECOND = 24; //fps
 #define MAX_MAP_X 400
 #define MAX_MAP_Y 14
 
+#define MAX_MAP_1 6270
+#define MAX_MAP_2 6370
+#define OUT_OF_MAP 400
+
 const int COLOR_KEY_R=167;
 const int COLOR_KEY_G=175;
 const int COLOR_KEY_B=180;
