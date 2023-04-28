@@ -21,7 +21,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer);
 
 void waitUntilKeyPressed();
 
-const int FRAME_PER_SECOND = 30; //fps
+const int FRAME_PER_SECOND = 24; //fps
 
 #define TILE_SIZE 32
 #define MAX_MAP_X 400
