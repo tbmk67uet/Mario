@@ -84,11 +84,14 @@ void ThreatsObject::Show(SDL_Renderer* renderer)
     {
         rect.x=x_pos-map_x;
         rect.y=y_pos-map_y;
-        frame++;
+        if(input_type.right == 1) frame++;
+        if(input_type.left == 1) frame --;
         if(frame >= 7) frame = 0;
+        if(frame <= -1) frame =6;
         SDL_Rect* currentClip = &frameClip[frame];
         SDL_Rect renderQuad = {rect.x,rect.y,wframe,hframe};
         SDL_RenderCopy(renderer,newTexture,currentClip,&renderQuad);
+
     }
 }
 
@@ -238,24 +241,24 @@ void ThreatsObject::ImpMoveType(SDL_Renderer* renderer)
             {
                 input_type.left=1;
                 input_type.right=0;
-                LoadImg("Image/goombas.png",renderer);
+                LoadImg("Image/goombas_left.png",renderer);
             }
             else if(x_pos < animationA)
             {
                 input_type.left=0;
                 input_type.right=1;
-                LoadImg("Image/goombas.png",renderer);
+                LoadImg("Image/goombas_left.png",renderer);
             }
         }
         else
         {
             if(input_type.left == 1)
             {
-                LoadImg("Image/goombas.png",renderer);
+                LoadImg("Image/goombas_left.png",renderer);
             }
             if(input_type.right == 1)
             {
-                LoadImg("Image/goombas.png",renderer);
+                LoadImg("Image/goombas_left.png",renderer);
             }
         }
     }

@@ -90,7 +90,7 @@ void MainObject::Show(SDL_Renderer* renderer)
 {
     updateImagePlayer(renderer);
 
-    if(input_type.left == 1 || input_type.right==1) frame++;
+    if(input_type.left == 1 || input_type.right==1) {frame++;SDL_Delay(20);}
     else frame=0;
     if(frame >= 7) frame = 0;
     if(come_back_time==0)

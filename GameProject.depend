@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1682585884 source:d:\cpp\gameproject\main.cpp
+1682656000 source:d:\cpp\gameproject\main.cpp
 	<iostream>
 	<SDL.h>
 	"SDL_Utils.h"
@@ -16,7 +16,7 @@
 	"Coin.h"
 	<vector>
 
-1682265014 d:\cpp\gameproject\sdl_utils.h
+1682656423 d:\cpp\gameproject\sdl_utils.h
 	<iostream>
 	"SDL.h"
 	"SDL_ttf.h"
@@ -70,7 +70,7 @@
 	"BaseObject.h"
 	<vector>
 
-1682506603 source:d:\cpp\gameproject\mainobject.cpp
+1682656569 source:d:\cpp\gameproject\mainobject.cpp
 	"MainObject.h"
 	"SDL_Utils.h"
 	"ImpTimer.h"
@@ -85,10 +85,10 @@
 
 1679274570 source:d:\cpp\gameproject\bulletobject.cpp
 
-1681443381 source:d:\cpp\gameproject\threatsobject.cpp
+1682656000 source:d:\cpp\gameproject\threatsobject.cpp
 	"ThreatsObject.h"
 
-1682507004 d:\cpp\gameproject\threatsobject.h
+1682653891 d:\cpp\gameproject\threatsobject.h
 	"SDL_Utils.h"
 	"BaseObject.h"
 
