@@ -39,6 +39,7 @@ public:
     float getXval() const {return x_val;}
     float getYval() const {return y_val;}
     void setYval(const float& yVal){y_val = yVal;}
+    void setXval(const float& xVal){x_val = xVal;}
     void setYpos(const float& yPos){y_pos = yPos;}
     void setXpos(const float& xPos){x_pos = xPos;}
 
@@ -61,6 +62,7 @@ private:
     int map_x;
     int map_y;
 
+    int check;
     int come_back_time;
 };
 

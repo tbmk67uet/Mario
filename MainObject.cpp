@@ -24,6 +24,7 @@ MainObject::MainObject()
     map_x=0;
     map_y=0;
     come_back_time = 0;
+
 }
 
 MainObject::~MainObject()

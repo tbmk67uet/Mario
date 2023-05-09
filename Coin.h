@@ -22,6 +22,7 @@ private:
     int wframe;
     int hframe;
     int frame;
+    int check;
 };
 
 

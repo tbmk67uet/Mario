@@ -6,7 +6,7 @@ Coin::Coin()
     wframe=0;
     hframe=0;
     frame=0;
-
+    check=0;
 }
 Coin::~Coin()
 {
@@ -49,7 +49,8 @@ void Coin::setClip()
 
 void Coin::Show(SDL_Renderer* renderer,int x_pos,int y_pos)
 {
-        frame++;
+        check++;
+        if(check%2==0) frame++;
         if(frame >= 3) frame = 0;
         SDL_Rect* currentClip = &frameClip[frame];
         SDL_Rect renderQuad = {x_pos,y_pos,wframe,hframe};
