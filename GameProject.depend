@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1683469290 source:d:\cpp\gameproject\main.cpp
+1683647330 source:d:\cpp\gameproject\main.cpp
 	<iostream>
 	<SDL.h>
 	"SDL_Utils.h"
@@ -16,7 +16,7 @@
 	"Coin.h"
 	<vector>
 
-1682690867 d:\cpp\gameproject\sdl_utils.h
+1683647478 d:\cpp\gameproject\sdl_utils.h
 	<iostream>
 	"SDL.h"
 	"SDL_ttf.h"

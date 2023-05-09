@@ -149,6 +149,7 @@ int main(int argc,char* argv[])
             gfont = TTF_OpenFont("Font/dlxfont.ttf",25);
 
             fpsTimer.start();
+            int m=0;
             while(SDL_PollEvent(&e) != 0)
             {
                 if(e.type == SDL_QUIT)
@@ -162,6 +163,9 @@ int main(int argc,char* argv[])
                         if(Mix_PlayingMusic() == 1)
                         {
                             Mix_PauseMusic();
+                            Mix_VolumeChunk(gJump,0);
+                            Mix_VolumeChunk(gStomp,0);
+                            Mix_VolumeChunk(gCoin,0);
                         }
                     }
                 }
@@ -238,6 +242,10 @@ int main(int argc,char* argv[])
                     scores = 0;
                     player.setXpos(0);
                     player.setYpos(0);
+                    if(checkMap == 1) game_map.LoadMap("map1/map01.dat");
+                    if(checkMap == 2){
+                        game_map.LoadMap("map2/map02.dat");
+                    }
                     SDL_Delay(2000);
                 }
 
